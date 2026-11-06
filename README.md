@@ -10,7 +10,7 @@ Interested in **Cybersecurity, Computer Networking & Computer Systems.**
 - **Computer Networking**
 - **Computer Systems**
 
-### 🛠️ Tech Stack
+### 🛠️ Technical Skills
 
 **Languages**
 
@@ -20,11 +20,15 @@ Interested in **Cybersecurity, Computer Networking & Computer Systems.**
 
 `Git` · `GitHub` · `Linux` · `Windows` · `VirtualBox`
 
+**AI Tools & Workflows**
+
+`Ollama` · `Local LLMs` 
+
 ### 📫 About Me
 
 **How to reach me:**
 - **GitHub:** [@sayklang](https://github.com/sayklang)
-- **Other Projects:** [@9sayklang](https://github.com/9sayklang)
+- **Email:** [sayklang.sar@student.mahidol.edu](mailto:sayklang.sar@student.mahidol.edu)
 
 ---
 
