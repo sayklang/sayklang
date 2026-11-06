@@ -1,16 +1,31 @@
-## Hi there 👋
+# Hi there, I'm Sayklang 👋
 
-<!--
-**sayklang/sayklang** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Computer Engineering @ Mahidol University 🇹🇭**
 
-Here are some ideas to get you started:
+Interested in **Cybersecurity, Computer Networking & Computer Systems.**
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🌱 Currently Learning
+
+- **Cybersecurity**
+- **Computer Networking**
+- **Computer Systems**
+
+### 🛠️ Tech Stack
+
+**Languages**
+
+`C` · `C++` · `Python` · `SQL`
+
+**Tools & Environments**
+
+`Git` · `GitHub` · `Linux` · `Windows` · `VirtualBox`
+
+### 📫 About Me
+
+**How to reach me:**
+- **GitHub:** [@sayklang](https://github.com/sayklang)
+- **Other Projects:** [@9sayklang](https://github.com/9sayklang)
+
+---
+
+*To become anything you want, you must sacrifice everything.*
