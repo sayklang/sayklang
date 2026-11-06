@@ -30,6 +30,8 @@ Interested in **Cybersecurity, Computer Networking & Computer Systems.**
 - **GitHub:** [@sayklang](https://github.com/sayklang)
 - **Email:** [sayklang.sar@student.mahidol.edu](mailto:sayklang.sar@student.mahidol.edu)
 
+**Hobby**
+- Chess.com: [@Magnus-carkao]([https://github.com/sayklang](https://www.chess.com/member/Magnus-carkao?utm_source=chatgpt.com))
 ---
 
 *To become anything you want, you must sacrifice everything.*
