@@ -34,4 +34,4 @@ Interested in **Cybersecurity, Computer Networking & Computer Systems.**
 - **Chess.com:** [@Magnus-carkao](https://www.chess.com/member/Magnus-carkao)
 ---
 
-*To become anything you want, you must sacrifice everything.*
+*To become anything you want,You must sacrifice everything you were.*
