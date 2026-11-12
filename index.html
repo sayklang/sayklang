@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
+<html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -29,7 +29,7 @@
       --p-inv-bg: #7d0c14; --p-inv-surface: #862323; --p-inv-ink: #e2e2e2; --p-inv-muted: #d0b3af;
       --p-inv-accent: #e2e2e2; --p-inv-accent-ink: #7d0c14; --p-inv-action: #e2e2e2; --p-inv-action-ink: #7d0c14;
       --font-display: "Newsreader", Georgia, serif;
-      --font-text: "Hanken Grotesk", system-ui, sans-serif;
+      --font-text: "Hanken Grotesk", Arial, sans-serif;
       --display-weight: 400;
       --display-tracking: -0.018em;
       --display-tracking-xl: -0.025em;
@@ -37,26 +37,22 @@
     }
   </style>
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-  <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
-  <link rel="modulepreload" href="assets/moments/moments.js">
-  <link rel="modulepreload" href="assets/moments/lib.js">
-  <link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
 </head>
 <body>
 <!-- type: service
-     deal: hero split, nav nav-centre, close close-type, footer footer-columns, rhythm surface-pairs, buttons arrow, mark dots
-     moment: word-highlight in #direction -->
-<header class="nav nav--centre">
+     redesign: editorial index, kept oxblood-grey brand, quiet motion
+     material: verified profile image, links and GitHub README facts; projects, experience and certificates intentionally empty -->
+<header class="nav nav--split">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Sayklang</a>
     <nav class="nav__links" aria-label="Main navigation">
-      <div class="nav__item"><a class="nav__link" href="#focus">Engineering interests</a></div>
-      <div class="nav__item"><a class="nav__link" href="#tools">Tools</a></div>
-      <div class="nav__item"><a class="nav__link" href="#profiles">Profiles</a></div>
+      <div class="nav__item"><a class="nav__link" href="#focus">Projects</a></div>
+      <div class="nav__item"><a class="nav__link" href="#direction">Experience</a></div>
+      <div class="nav__item"><a class="nav__link" href="#contact">Certificates</a></div>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary" href="#profiles">View profiles<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <span class="current-status" aria-label="Current status: Open to internships">Open to internships</span>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -69,51 +65,52 @@
     <div class="wrap">
       <div class="hero-text grid hero__grid">
         <div class="hero__text span-5">
-          <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Mahidol University, Thailand</p>
-          <h1 id="hero-h">Computer engineering student</h1>
-          <p class="hero__lead">I’m Sayklang Saramolee. I study Computer Engineering and am interested in cybersecurity, networking and DevOps.</p>
+          <h1 id="hero-h">Sayklang Saramolee, Computer Engineering</h1>
+          <p class="hero__lead">Mahidol University student interested in cybersecurity, networking and DevOps.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="#profiles">View profiles<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+            <a class="btn btn--primary" href="#profiles">View profiles</a>
             <a class="btn btn--secondary" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">View GitHub</a>
           </div>
         </div>
         <div class="hero__media span-6 start-7">
           <img src="https://avatars.githubusercontent.com/u/195727556?v=4" alt="Profile image used by Sayklang Saramolee on GitHub" width="420" height="420" fetchpriority="high" data-source="client" data-subject="Sayklang Saramolee">
-          <div class="ly-float">
-            <div class="ly-float__row"><span>Current interests</span><span>3 areas</span></div>
-            <div class="ly-float__title">Cybersecurity · Networking · DevOps</div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="focus" aria-labelledby="focus-h">
+  <section class="section project-section" id="focus" aria-labelledby="focus-h">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <h2 id="focus-h">Projects</h2>
+        <p>Verified project details will be added as the work is ready to share.</p>
+      </div>
+      <article class="empty-object project-placeholder" aria-labelledby="project-empty-h">
+        <div>
+          <h3 id="project-empty-h">No projects published yet</h3>
+          <p>This space is reserved for a project title, role, tools, short description and verified link.</p>
+        </div>
+        <dl class="placeholder-fields" aria-label="Fields reserved for a future project">
+          <div><dt>Project</dt><dd>Not added</dd></div>
+          <div><dt>Role and tools</dt><dd>Not added</dd></div>
+          <div><dt>Repository or demo</dt><dd>Not added</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="section experience-section" id="direction" data-moment="" aria-labelledby="direction-h">
     <div class="wrap grid grid--middle">
       <div class="span-5">
         <div class="section-head">
-          <h2 id="focus-h">Engineering interests</h2>
-          <p>I’m building broad foundations before choosing a narrower direction.</p>
+          <h2 id="direction-h">Experience &amp; activities</h2>
+          <p>Only confirmed roles, events and activities will appear here.</p>
         </div>
-        <ul class="rows focus-rows">
-          <li><span class="rows__name">Cybersecurity<small>Systems, threats and defensive practice</small></span><span class="rows__value">Interest</span></li>
-          <li><span class="rows__name">Networking<small>Devices, services and protocols</small></span><span class="rows__value">Interest</span></li>
-          <li><span class="rows__name">DevOps<small>Code, deployment and operations</small></span><span class="rows__value">Interest</span></li>
-        </ul>
       </div>
-      <div class="focus-map span-6 start-7" role="img" aria-label="Computer engineering connected to cybersecurity, networking and DevOps">
-        <span class="focus-map__core">Computer<br>engineering</span>
-        <span class="focus-map__node focus-map__node--one">Cybersecurity</span>
-        <span class="focus-map__node focus-map__node--two">Networking</span>
-        <span class="focus-map__node focus-map__node--three">DevOps</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section statement" id="direction" data-moment="word-highlight" aria-label="Learning direction">
-    <div class="wrap">
-      <p class="t-label">Learning direction</p>
-      <p class="mo-wh__text">I’m building the <strong>fundamentals</strong> to understand how systems connect, how they fail and how teams can run them more safely.</p>
+      <article class="empty-object experience-placeholder span-6 start-7" aria-labelledby="experience-empty-h">
+        <h3 id="experience-empty-h">No entries added yet</h3>
+        <p>This space is reserved for an organisation, activity, role, date and a short verified summary.</p>
+      </article>
     </div>
   </section>
 
@@ -125,13 +122,12 @@
           <p>These languages, tools and environments are listed on my GitHub profile.</p>
         </div>
       </div>
-      <div class="tool-window span-6 start-7" data-visual="tool-window" role="img" aria-label="Languages and tools listed on Sayklang's GitHub profile">
-        <div class="tool-window__bar"><span></span><span></span><span></span><b>working-set.txt</b></div>
+      <div class="tool-ledger span-6 start-7">
         <dl>
-          <div><dt>Languages</dt><dd>C · C++ · Python · SQL</dd></div>
-          <div><dt>Tools</dt><dd>Git · GitHub · VirtualBox</dd></div>
-          <div><dt>Systems</dt><dd>Linux · Windows</dd></div>
-          <div><dt>AI workflows</dt><dd>Ollama · Local LLMs</dd></div>
+          <div><dt>Languages</dt><dd>C, C++, Python, SQL</dd></div>
+          <div><dt>Tools</dt><dd>Git, GitHub, VirtualBox</dd></div>
+          <div><dt>Systems</dt><dd>Linux, Windows</dd></div>
+          <div><dt>AI workflows</dt><dd>Ollama, Local LLMs</dd></div>
         </dl>
       </div>
     </div>
@@ -143,29 +139,17 @@
         <h2 id="profiles-h">Sayklang’s profiles</h2>
         <p>Two public profiles are confirmed. CV and TryHackMe URLs are not yet verified.</p>
       </div>
-      <svg class="profile-visual" viewBox="0 0 1000 180" role="img" aria-label="Four profile destinations connected to Sayklang">
-        <path d="M170 90H830" fill="none" stroke="currentColor" stroke-opacity=".24" stroke-width="2"/>
-        <circle cx="500" cy="90" r="58" fill="currentColor"/>
-        <text x="500" y="97" text-anchor="middle" fill="var(--bg)" font-family="var(--font-display)" font-size="25">Sayklang</text>
-        <g fill="var(--bg)" stroke="currentColor" stroke-opacity=".2">
-          <rect x="40" y="48" width="180" height="84" rx="12"/><rect x="260" y="48" width="180" height="84" rx="12"/>
-          <rect x="560" y="48" width="180" height="84" rx="12"/><rect x="780" y="48" width="180" height="84" rx="12"/>
-        </g>
-        <g fill="currentColor" font-family="var(--font-text)" font-size="18" font-weight="500" text-anchor="middle">
-          <text x="130" y="96">GitHub</text><text x="350" y="96">LinkedIn</text><text x="650" y="96">CV</text><text x="870" y="96">TryHackMe</text>
-        </g>
-      </svg>
-      <div class="profile-grid" data-visual="profiles">
-        <a class="panel profile-link" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
-          <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span class="profile-link__arrow" aria-hidden="true">↗</span>
+      <div class="profile-list" data-visual="profiles">
+        <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
+          <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
         </a>
-        <a class="panel profile-link" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
-          <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span class="profile-link__arrow" aria-hidden="true">↗</span>
+        <a class="profile-entry" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
+          <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span>Open profile</span>
         </a>
-        <div class="panel profile-link profile-link--unavailable" aria-disabled="true">
+        <div class="profile-entry profile-entry--unavailable">
           <span><strong>CV</strong><small>URL not provided</small></span><span class="profile-link__status">Unavailable</span>
         </div>
-        <div class="panel profile-link profile-link--unavailable" aria-disabled="true">
+        <div class="profile-entry profile-entry--unavailable">
           <span><strong>TryHackMe</strong><small>Profile URL not confirmed</small></span><span class="profile-link__status">Unverified</span>
         </div>
       </div>
@@ -175,9 +159,12 @@
 
 <footer class="footer closing" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta close--type">
-      <div class="section-head"><h2 id="close-h">Start with the public profiles</h2><p class="t-lead">GitHub shows the current profile. LinkedIn provides the professional connection.</p></div>
-      <a class="btn btn--primary" href="#profiles">View profiles<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    <div class="closing__cta certificate-block">
+      <div class="section-head"><h2 id="close-h">Certificates</h2><p class="t-lead">Verified certificates and credential links will be added here.</p></div>
+      <article class="empty-object certificate-placeholder" aria-labelledby="certificate-empty-h">
+        <h3 id="certificate-empty-h">No verified certificates added yet</h3>
+        <p>This space is reserved for a certificate name, issuer, issue date and credential link.</p>
+      </article>
     </div>
     <div class="closing__links">
       <div class="grid">
@@ -185,7 +172,7 @@
           <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Sayklang</a>
           <p class="footer__lede">Computer Engineering at Mahidol University.</p>
         </div>
-        <div class="span-2 start-7 footer__col"><h3>Portfolio</h3><ul><li><a href="#focus">Focus</a></li><li><a href="#tools">Tools</a></li><li><a href="#profiles">Profiles</a></li></ul></div>
+        <div class="span-2 start-7 footer__col"><h3>Portfolio</h3><ul><li><a href="#focus">Projects</a></li><li><a href="#direction">Experience</a></li><li><a href="#tools">Tools</a></li><li><a href="#profiles">Profiles</a></li></ul></div>
         <div class="span-3 start-10 footer__col"><h3>Contact</h3><ul><li><a href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li><li><a href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li></ul></div>
       </div>
       <div class="footer__legal"><span>&copy; <span data-year>2026</span> Sayklang Saramolee</span><span>Built as a static GitHub Pages site.</span></div>
