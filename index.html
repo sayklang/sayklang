@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
+<html lang="en" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="assets/layout/layout.css">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* สีและฟอนต์หลักของเว็บไซต์
+       แก้ค่าสีที่ขึ้นต้นด้วย --p- เพื่อเปลี่ยนธีมทั้งเว็บ
+       --font-display ใช้กับหัวข้อ และ --font-text ใช้กับข้อความทั่วไป */
     :root {
       --p-bg: #e2e2e2; --p-surface: #d6d6d6; --p-ink: #7d0c14; --p-muted: #7a4a4e;
       --p-accent: #7d0c14; --p-accent-ink: #e2e2e2; --p-action: #7d0c14; --p-action-ink: #e2e2e2;
@@ -42,7 +45,8 @@
 <!-- type: service
      redesign: editorial index, kept oxblood-grey brand, quiet motion
      material: verified profile image, links and GitHub README facts; projects, experience and certificates intentionally empty -->
-<header class="nav nav--split">
+<!-- HEADER / เมนูด้านบน: แก้ชื่อลิงก์และ href ของเมนูได้ในส่วนนี้ -->
+<header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Sayklang</a>
@@ -52,7 +56,8 @@
       <div class="nav__item"><a class="nav__link" href="#contact">Certificates</a></div>
     </nav>
     <div class="nav__actions">
-      <span class="current-status" aria-label="Current status: Open to internships">Open to internships</span>
+      <!-- ปุ่มขวาบน: ข้อความและปลายทางของปุ่ม View profiles -->
+      <a class="btn btn--primary" href="#profiles">View profiles<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -61,6 +66,7 @@
 </header>
 
 <main id="top">
+  <!-- HERO: ข้อมูลแนะนำตัว ปุ่มหลัก และรูปโปรไฟล์ด้านบนสุด -->
   <section class="hero hero--split" data-enter aria-labelledby="hero-h">
     <div class="wrap">
       <div class="hero-text grid hero__grid">
@@ -79,6 +85,8 @@
     </div>
   </section>
 
+  <!-- PROJECTS: ตอนมีโปรเจกต์จริง ให้แทนที่ article.project-placeholder
+       ด้วยข้อมูลชื่อโปรเจกต์ บทบาท เครื่องมือ คำอธิบาย และลิงก์ที่ตรวจสอบแล้ว -->
   <section class="section project-section" id="focus" aria-labelledby="focus-h">
     <div class="wrap">
       <div class="section-head section-head--split">
@@ -99,6 +107,8 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE & ACTIVITIES: แทนที่ article.experience-placeholder
+       เมื่อมีชื่อองค์กร/กิจกรรม บทบาท วันที่ และรายละเอียดที่ยืนยันแล้ว -->
   <section class="section experience-section" id="direction" data-moment="" aria-labelledby="direction-h">
     <div class="wrap grid grid--middle">
       <div class="span-5">
@@ -114,6 +124,7 @@
     </div>
   </section>
 
+  <!-- TOOLS: รายการนี้มาจาก README ของ GitHub แก้แต่ละแถวใน dl เมื่อข้อมูลเปลี่ยน -->
   <section class="section ground-surface" id="tools" aria-labelledby="tools-h">
     <div class="wrap grid grid--middle">
       <div class="span-5">
@@ -133,6 +144,8 @@
     </div>
   </section>
 
+  <!-- PROFILES: GitHub และ LinkedIn มี URL ยืนยันแล้ว
+       ใส่ลิงก์ CV หรือ TryHackMe เฉพาะเมื่อมี URL จริง แล้วเปลี่ยน div เป็น a -->
   <section class="section ground-surface" id="profiles" aria-labelledby="profiles-h">
     <div class="wrap">
       <div class="section-head profiles-head">
@@ -157,10 +170,12 @@
   </section>
 </main>
 
+<!-- CERTIFICATES + FOOTER: ส่วนใบรับรองและข้อมูลติดต่อท้ายเว็บไซต์ -->
 <footer class="footer closing" id="contact" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta certificate-block">
       <div class="section-head"><h2 id="close-h">Certificates</h2><p class="t-lead">Verified certificates and credential links will be added here.</p></div>
+      <!-- เมื่อมีใบรับรอง ให้แทนที่ article นี้ด้วยชื่อใบรับรอง ผู้ออก วันที่ และ credential URL -->
       <article class="empty-object certificate-placeholder" aria-labelledby="certificate-empty-h">
         <h3 id="certificate-empty-h">No verified certificates added yet</h3>
         <p>This space is reserved for a certificate name, issuer, issue date and credential link.</p>

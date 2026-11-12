@@ -1,7 +1,10 @@
+// อัปเดตปีใน footer อัตโนมัติจากเวลาของอุปกรณ์ผู้ชม
 document.querySelectorAll('[data-year]').forEach((node) => {
   node.textContent = new Date().getFullYear();
 });
 
+// ทำเครื่องหมายเมนูของ section ที่กำลังอยู่ในหน้าจอด้วย aria-current
+// หากเพิ่มเมนูใหม่ ให้ใช้ href="#section-id" และตั้ง id เดียวกันให้ section เป้าหมาย
 const sectionLinks = [...document.querySelectorAll('.nav__links a[href^="#"]')];
 const observedSections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute('href')))

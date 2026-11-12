@@ -1,7 +1,8 @@
-/* Hallmark · v2.0.0 · redesign: full · genre: editorial · job: hire · brand: kept oxblood-grey · hero: Stage · nav: edge-aligned index with status · footer: certificate close and colophon · imagery: verified GitHub profile photograph · posture: restrained */
+/* Hallmark · v2.0.0 · redesign: full · genre: editorial · job: hire · brand: kept oxblood-grey · hero: Stage · nav: centred index with profile action · footer: certificate close and colophon · imagery: verified GitHub profile photograph · posture: restrained */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 · weakest: E, the shared kit remains; removed decorative diagrams, terminal chrome and repeated card treatments */
 /* Design reasons: oxblood keeps the established identity; editorial type foregrounds the student’s name; hairline ledgers make empty and verified content visibly different; varied split, index and ledger sections prevent a repeated card-grid rhythm; quiet motion keeps the page readable and respects reduced-motion preferences. */
 
+/* ป้องกันหน้าเว็บล้นแนวนอน และกำหนดหน้าตาของ scrollbar ด้านขวา */
 html,
 body {
   overflow-x: clip;
@@ -32,20 +33,7 @@ html::-webkit-scrollbar-thumb {
   background: var(--surface);
 }
 
-.current-status {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding-inline: var(--s-4);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  background: var(--surface);
-  font-size: var(--t-small);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
+/* หัวข้อแบบสองคอลัมน์ ใช้ในส่วน Projects */
 .section-head--split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -58,6 +46,7 @@ html::-webkit-scrollbar-thumb {
   justify-self: end;
 }
 
+/* รูปแบบ empty state ที่ใช้กับ Projects, Experience และ Certificates */
 .empty-object {
   min-width: 0;
   border-top: 1px solid var(--line);
@@ -107,6 +96,7 @@ html::-webkit-scrollbar-thumb {
   gap: var(--s-4);
 }
 
+/* รายการ Languages / Tools / Systems / AI workflows */
 .tool-ledger {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -131,6 +121,7 @@ html::-webkit-scrollbar-thumb {
   max-width: 720px;
 }
 
+/* รายการลิงก์โปรไฟล์ และสถานะของลิงก์ที่ยังไม่มี */
 .profile-list {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -189,8 +180,7 @@ a.profile-entry:focus-visible { outline: 2px solid var(--action); outline-offset
 }
 
 @media (max-width: 639px) {
-  .nav:not(.is-open) .nav__actions > .current-status { display: inline-flex; }
-  .current-status { min-height: 32px; padding-inline: var(--s-3); font-size: 12px; }
+  /* เปลี่ยนส่วนสองคอลัมน์ให้เป็นหนึ่งคอลัมน์บนโทรศัพท์ */
   .section-head--split,
   .project-placeholder,
   .certificate-placeholder { grid-template-columns: minmax(0, 1fr); }
