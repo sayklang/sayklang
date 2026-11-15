@@ -55,11 +55,17 @@ function externalLink(label, url, className) {
 function hydrateProfile(profile) {
   if (!profile || !cleanText(profile.name)) return;
 
+  const name = cleanText(profile.name);
   for (const node of document.querySelectorAll('[data-profile]')) {
-    const value = cleanText(profile[node.dataset.profile]);
+    const field = node.dataset.profile;
+    const value = cleanText(profile[field]);
+    if (field === 'headline' && value.startsWith(name + ',')) {
+      node.textContent = value.slice(name.length + 1).trim();
+      continue;
+    }
     if (value) node.textContent = value;
   }
-  document.title = cleanText(profile.headline) || cleanText(profile.name);
+  document.title = cleanText(profile.headline) || name;
 
   const photo = document.querySelector('[data-profile-photo]');
   const photoUrl = uploadUrl(profile.photo);
@@ -69,9 +75,11 @@ function hydrateProfile(profile) {
     photo.addEventListener('error', () => {
       photo.src = fallbackSource;
       photo.alt = fallbackAlt;
+      photo.removeAttribute('data-uploaded-photo');
     }, { once: true });
     photo.src = photoUrl.href;
     photo.alt = cleanText(profile.photoAlt) || 'Profile image of ' + cleanText(profile.name);
+    photo.setAttribute('data-uploaded-photo', '');
   }
 
   const email = cleanText(profile.email);
@@ -95,17 +103,18 @@ function hydrateProfile(profile) {
     if (channel === 'email') node.textContent = 'Email ' + (cleanText(profile.shortName) || cleanText(profile.name));
   }
 
-  const rows = profileChannels.map(({ key, label, action }) => {
+  const rows = profileChannels.flatMap(({ key, label, action }) => {
     const url = webUrl(profile[key]);
-    const row = url
-      ? externalLink('', url, 'profile-entry')
-      : element('div', '', 'profile-entry profile-entry--unavailable');
+    if (!url) return [];
+
+    const row = externalLink('', url, 'profile-entry');
     const details = element('span');
-    const subtext = url ? url.hostname.replace(/^www\./, '') : 'URL not provided';
+    const subtext = url.hostname.replace(/^www\./, '');
     details.append(element('strong', label), element('small', subtext));
-    row.append(details, element('span', url ? action : 'Unavailable', url ? '' : 'profile-link__status'));
-    return row;
+    row.append(details, element('span', action));
+    return [row];
   });
+  if (!rows.length) rows.push(element('p', 'No public profiles listed.', 'empty-object'));
   document.querySelector('[data-profile-list]').replaceChildren(...rows);
 }
 
@@ -141,14 +150,24 @@ function portfolioRow(item, { meta = [], links = [], image = item.image, imageAl
   const row = element('li', '', 'portfolio-item');
   const imageUrl = uploadUrl(image);
   if (imageUrl) {
+    const media = element('div', '', 'portfolio-item__media');
     const photo = element('img', '', 'portfolio-item__cover');
     photo.src = imageUrl.href;
     photo.alt = cleanText(imageAlt);
     photo.width = 640;
     photo.height = 360;
     photo.loading = 'lazy';
-    photo.addEventListener('error', () => photo.remove(), { once: true });
-    row.append(photo);
+    photo.addEventListener('error', () => media.remove(), { once: true });
+    media.append(photo);
+
+    if (typeof document.querySelector('.image-viewer')?.showModal === 'function') {
+      const zoom = element('button', 'View image', 'btn btn--secondary portfolio-item__zoom');
+      zoom.type = 'button';
+      zoom.setAttribute('aria-label', 'View image for ' + title);
+      zoom.dataset.viewImage = title;
+      media.append(zoom);
+    }
+    row.append(media);
   }
 
   row.append(element('h3', title));
@@ -225,11 +244,20 @@ const editors = {
 };
 
 async function loadContent(name, render) {
+  const emptyState = ['projects', 'experience', 'certificates'].includes(name)
+    ? document.querySelector('[data-empty="' + name + '"]')
+    : null;
+  const emptyText = emptyState?.textContent;
+  if (emptyState) emptyState.textContent = 'Loading…';
+
   try {
     const response = await fetch(new URL('content/' + name + '.json', siteRoot));
     if (!response.ok) throw new Error('HTTP ' + response.status);
-    render(await response.json());
+    const data = await response.json();
+    if (emptyState) emptyState.textContent = emptyText;
+    render(data);
   } catch (error) {
+    if (emptyState) emptyState.textContent = 'This section could not be loaded.';
     console.warn('Portfolio content could not load: ' + name, error);
   }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
+<html lang="en" data-type="service" data-radius="soft" data-buttons="solid">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -7,199 +7,174 @@
   <meta name="description" content="Personal portfolio of Sayklang Saramolee, a Computer Engineering student at Mahidol University interested in cybersecurity, networking and DevOps.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sayklang Saramolee: Computer Engineering portfolio">
-  <meta property="og:description" content="Profiles and learning interests in cybersecurity, networking and DevOps.">
+  <meta property="og:description" content="Computer Engineering portfolio, projects and professional profiles.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/195727556?v=4">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#e2e2e2">
+  <meta name="theme-color" content="#f7f3ec">
   <meta name="site-kind" content="other">
   <meta name="page-type" content="service">
   <link rel="canonical" href="https://sayklang.github.io/sayklang/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Hanken+Grotesk:wght@400..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/system.css">
-  <link rel="stylesheet" href="assets/motion/motion.css">
-  <link rel="stylesheet" href="assets/layout/layout.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* สีและฟอนต์หลักของเว็บไซต์
-       แก้ค่าสีที่ขึ้นต้นด้วย --p- เพื่อเปลี่ยนธีมทั้งเว็บ
-       --font-display ใช้กับหัวข้อ และ --font-text ใช้กับข้อความทั่วไป */
-    :root {
-      --p-bg: #e2e2e2; --p-surface: #d6d6d6; --p-ink: #7d0c14; --p-muted: #7a4a4e;
-      --p-accent: #7d0c14; --p-accent-ink: #e2e2e2; --p-action: #7d0c14; --p-action-ink: #e2e2e2;
-      --p-inv-bg: #7d0c14; --p-inv-surface: #862323; --p-inv-ink: #e2e2e2; --p-inv-muted: #d0b3af;
-      --p-inv-accent: #e2e2e2; --p-inv-accent-ink: #7d0c14; --p-inv-action: #e2e2e2; --p-inv-action-ink: #7d0c14;
-      --font-display: "Newsreader", Georgia, serif;
-      --font-text: "Hanken Grotesk", Arial, sans-serif;
-      --display-weight: 400;
-      --display-tracking: -0.018em;
-      --display-tracking-xl: -0.025em;
-      --ly-scale: 1.06;
-    }
-  </style>
-  <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+  <script src="script.js" defer></script>
+  <script type="module" src="portfolio-content.js"></script>
 </head>
 <body>
-<!-- type: service
-     redesign: editorial index, kept oxblood-grey brand, quiet motion
-     material: verified profile image, links and GitHub README facts; projects, experience and certificates intentionally empty -->
-<!-- HEADER / เมนูด้านบน: แก้ชื่อลิงก์และ href ของเมนูได้ในส่วนนี้ -->
-<header class="nav nav--centre">
-  <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span><span data-profile="shortName">Sayklang</span></a>
-    <nav class="nav__links" aria-label="Main navigation">
-      <div class="nav__item"><a class="nav__link" href="#focus">Projects</a></div>
-      <div class="nav__item"><a class="nav__link" href="#direction">Experience</a></div>
-      <div class="nav__item"><a class="nav__link" href="#contact">Certificates</a></div>
-    </nav>
-    <div class="nav__actions">
-      <!-- ปุ่มขวาบน: ข้อความและปลายทางของปุ่ม View profiles -->
-      <a class="btn btn--primary" href="#profiles">View profiles<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <header class="nav">
+    <div class="wrap nav__bar">
+      <a class="nav__logo" href="#top" data-profile="shortName">Sayklang</a>
+      <nav class="nav__links" id="site-nav" aria-label="Main navigation">
+        <div class="nav__item"><a class="nav__link" href="#focus">Projects</a></div>
+        <div class="nav__item"><a class="nav__link" href="#tools">Skills</a></div>
+        <div class="nav__item"><a class="nav__link" href="#direction">Experience</a></div>
+        <div class="nav__item"><a class="nav__link" href="#contact">Certificates</a></div>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary" href="#profiles">View profiles</a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+      </div>
     </div>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
-  </div>
-</header>
+  </header>
 
-<main id="top">
-  <!-- HERO: ข้อมูลแนะนำตัว ปุ่มหลัก และรูปโปรไฟล์ด้านบนสุด -->
-  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
-    <div class="wrap">
-      <div class="hero-text grid hero__grid">
-        <div class="hero__text span-5">
-          <h1 id="hero-h" data-profile="headline">Sayklang Saramolee, Computer Engineering</h1>
+  <main id="top" tabindex="-1">
+    <section class="hero" data-enter aria-labelledby="hero-h">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <h1 id="hero-h" data-profile="name">Sayklang Saramolee</h1>
+          <p class="hero__role" data-profile="headline">Computer Engineering</p>
           <p class="hero__lead" data-profile="intro">Mahidol University student interested in cybersecurity, networking and DevOps.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="#profiles">View profiles</a>
-            <a class="btn btn--secondary" data-profile-link="github" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">View GitHub</a>
+            <a class="btn btn--primary" data-profile-link="github" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">View GitHub</a>
+            <a class="btn btn--secondary" data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a>
           </div>
         </div>
-        <div class="hero__media span-6 start-7">
-          <img data-profile-photo src="https://avatars.githubusercontent.com/u/195727556?v=4" alt="Profile image used by Sayklang Saramolee on GitHub" width="420" height="420" fetchpriority="high" data-source="client" data-subject="Sayklang Saramolee">
+        <aside class="hero__folio" aria-labelledby="folio-index">
+          <img data-profile-photo src="https://avatars.githubusercontent.com/u/195727556?v=4" alt="Sayklang’s GitHub identicon" width="420" height="420" fetchpriority="high" data-source="client" data-subject="Sayklang Saramolee">
+          <div>
+            <h2 id="folio-index">Portfolio index</h2>
+            <ul class="folio-links" role="list">
+              <li><a href="#tools">Skills</a></li>
+              <li><a href="#focus">Projects</a></li>
+              <li><a href="#direction">Experience &amp; activities</a></li>
+              <li><a href="#contact">Certificates</a></li>
+              <li><a href="#profiles">GitHub &amp; LinkedIn</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- เนื้อหาในส่วนเหล่านี้อ่านจาก Pages CMS. HTML เป็นข้อมูลสำรองเมื่อโหลดไม่ได้ -->
+    <section class="section project-section" id="focus" data-editable-section aria-labelledby="focus-h">
+      <div class="wrap chapter">
+        <div class="section-head"><h2 id="focus-h">Projects</h2></div>
+        <div class="chapter__content">
+          <p class="empty-object" data-empty="projects" id="project-empty-h" role="status">No projects published yet.</p>
+          <ul class="portfolio-items project-items" data-items="projects" aria-labelledby="focus-h" role="list" hidden></ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS: เพิ่มรายการจากเมนู Projects ใน Pages CMS ระบบจะแทนที่ข้อความว่างให้เอง -->
-  <section class="section project-section" id="focus" data-editable-section aria-labelledby="focus-h">
-    <div class="wrap">
-      <div class="section-head section-head--split">
-        <h2 id="focus-h">Projects</h2>
-        <p>Verified project details will be added as the work is ready to share.</p>
-      </div>
-      <article class="empty-object project-placeholder" data-empty="projects" aria-labelledby="project-empty-h">
-        <div>
-          <h3 id="project-empty-h">No projects published yet</h3>
-          <p>This space is reserved for a project title, role, tools, short description and verified link.</p>
-        </div>
-        <dl class="placeholder-fields" aria-label="Fields reserved for a future project">
-          <div><dt>Project</dt><dd>Not added</dd></div>
-          <div><dt>Role and tools</dt><dd>Not added</dd></div>
-          <div><dt>Repository or demo</dt><dd>Not added</dd></div>
-        </dl>
-      </article>
-      <ul class="portfolio-items project-items" data-items="projects" aria-labelledby="focus-h" role="list" hidden></ul>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE & ACTIVITIES: แก้รายการผ่านเมนู Experience and activities ใน Pages CMS -->
-  <section class="section experience-section" id="direction" data-editable-section aria-labelledby="direction-h">
-    <div class="wrap grid grid--middle">
-      <div class="span-5">
-        <div class="section-head">
-          <h2 id="direction-h">Experience &amp; activities</h2>
-          <p>Only confirmed roles, events and activities will appear here.</p>
-        </div>
-      </div>
-      <article class="empty-object experience-placeholder span-6 start-7" data-empty="experience" aria-labelledby="experience-empty-h">
-        <h3 id="experience-empty-h">No entries added yet</h3>
-        <p>This space is reserved for an organisation, activity, role, date and a short verified summary.</p>
-      </article>
-      <ul class="portfolio-items span-6 start-7" data-items="experience" aria-labelledby="direction-h" role="list" hidden></ul>
-    </div>
-  </section>
-
-  <!-- SKILLS: เพิ่มหมวดและทักษะผ่านเมนู Skills ข้อมูลใน HTML ใช้เมื่อโหลดข้อมูลไม่ได้ -->
-  <section class="section ground-surface" id="tools" data-editable-section aria-labelledby="tools-h">
-    <div class="wrap grid grid--middle">
-      <div class="span-5">
+    <section class="section skills-section" id="tools" data-editable-section aria-labelledby="tools-h">
+      <div class="wrap chapter chapter--wide">
         <div class="section-head">
           <h2 id="tools-h">Skills</h2>
           <p>Languages, tools and environments I work with.</p>
         </div>
-      </div>
-      <div class="tool-ledger span-6 start-7">
-        <p class="skills-empty" data-empty="skills" hidden>No skills listed yet.</p>
-        <dl data-items="skills">
-          <div><dt>Languages</dt><dd>C, C++, Python, SQL</dd></div>
-          <div><dt>Tools</dt><dd>Git, GitHub, VirtualBox</dd></div>
-          <div><dt>Systems</dt><dd>Linux, Windows</dd></div>
-          <div><dt>AI workflows</dt><dd>Ollama, Local LLMs</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROFILES: แก้ URL ในเมนู Personal information ใส่ CV และ TryHackMe เมื่อมีลิงก์จริง -->
-  <section class="section ground-surface" id="profiles" aria-labelledby="profiles-h">
-    <div class="wrap">
-      <div class="section-head profiles-head">
-        <h2 id="profiles-h">Profiles</h2>
-        <p>Public profiles and CV links.</p>
-      </div>
-      <div class="profile-list" data-visual="profiles" data-profile-list>
-        <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
-          <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
-        </a>
-        <a class="profile-entry" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
-          <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span>Open profile</span>
-        </a>
-        <div class="profile-entry profile-entry--unavailable">
-          <span><strong>CV</strong><small>URL not provided</small></span><span class="profile-link__status">Unavailable</span>
-        </div>
-        <div class="profile-entry profile-entry--unavailable">
-          <span><strong>TryHackMe</strong><small>Profile URL not confirmed</small></span><span class="profile-link__status">Unverified</span>
+        <div class="chapter__content tool-ledger">
+          <p class="empty-object" data-empty="skills" hidden>No skills listed yet.</p>
+          <dl data-items="skills">
+            <div><dt>Languages</dt><dd>C, C++, Python, SQL</dd></div>
+            <div><dt>Tools</dt><dd>Git, GitHub, VirtualBox</dd></div>
+            <div><dt>Systems</dt><dd>Linux, Windows</dd></div>
+            <div><dt>AI workflows</dt><dd>Ollama, Local LLMs</dd></div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<!-- CERTIFICATES + FOOTER: ส่วนใบรับรองและข้อมูลติดต่อท้ายเว็บไซต์ -->
-<footer class="footer closing" id="contact" aria-labelledby="close-h">
-  <div class="wrap">
-    <div class="closing__cta certificate-block" data-certificates>
-      <div class="section-head"><h2 id="close-h">Certificates</h2><p class="t-lead">Verified certificates and credential links will be added here.</p></div>
-      <!-- เพิ่มข้อมูลผ่านเมนู Certificates ใน Pages CMS -->
-      <article class="empty-object certificate-placeholder" data-empty="certificates" aria-labelledby="certificate-empty-h">
-        <h3 id="certificate-empty-h">No verified certificates added yet</h3>
-        <p>This space is reserved for a certificate name, issuer, issue date and credential link.</p>
-      </article>
-      <ul class="portfolio-items" data-items="certificates" aria-labelledby="close-h" role="list" hidden></ul>
-    </div>
-    <div class="closing__links">
-      <div class="grid">
-        <div class="span-4 stack-5">
-          <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span><span data-profile="shortName">Sayklang</span></a>
-          <p class="footer__lede" data-profile="footerNote">Computer Engineering at Mahidol University.</p>
+    <section class="section experience-section" id="direction" data-editable-section aria-labelledby="direction-h">
+      <div class="wrap chapter">
+        <div class="section-head"><h2 id="direction-h">Experience &amp; activities</h2></div>
+        <div class="chapter__content">
+          <p class="empty-object" data-empty="experience" id="experience-empty-h" role="status">No experience or activities published yet.</p>
+          <ul class="portfolio-items" data-items="experience" aria-labelledby="direction-h" role="list" hidden></ul>
         </div>
-        <div class="span-2 start-7 footer__col"><h3>Portfolio</h3><ul><li><a href="#focus">Projects</a></li><li><a href="#direction">Experience</a></li><li><a href="#tools">Tools</a></li><li><a href="#profiles">Profiles</a></li></ul></div>
-        <div class="span-3 start-10 footer__col"><h3>Contact</h3><ul><li><a data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li><li><a data-profile-link="linkedin" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li></ul></div>
       </div>
-      <div class="footer__legal"><span>&copy; <span data-year>2026</span> <span data-profile="name">Sayklang Saramolee</span></span><span>Built as a static GitHub Pages site.</span></div>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script type="module" src="assets/system.js"></script>
-<script type="module" src="assets/motion/motion.js"></script>
-<script type="module" src="assets/layout/layout.js"></script>
-<script type="module" src="portfolio-content.js"></script>
-<script src="script.js" defer></script>
+    <section class="section profiles-section" id="profiles" aria-labelledby="profiles-h">
+      <div class="wrap chapter chapter--wide">
+        <div class="section-head">
+          <h2 id="profiles-h">Profiles</h2>
+          <p>Find my work on GitHub or connect with me on LinkedIn.</p>
+        </div>
+        <div class="chapter__content profile-list" data-profile-list>
+          <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
+            <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
+          </a>
+          <a class="profile-entry" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
+            <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span>Open profile</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer closing" id="contact">
+    <section class="section certificate-block" data-certificates aria-labelledby="close-h">
+      <div class="wrap chapter">
+        <div class="section-head"><h2 id="close-h">Certificates</h2></div>
+        <div class="chapter__content">
+          <p class="empty-object" data-empty="certificates" id="certificate-empty-h" role="status">No certificates published yet.</p>
+          <ul class="portfolio-items" data-items="certificates" aria-labelledby="close-h" role="list" hidden></ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer__band">
+      <div class="wrap">
+        <div class="footer__content">
+          <div>
+            <p class="footer__name" data-profile="name">Sayklang Saramolee</p>
+            <p class="footer__lede" data-profile="footerNote">Computer Engineering at Mahidol University.</p>
+          </div>
+          <div class="footer__col">
+            <h2>Portfolio</h2>
+            <ul role="list">
+              <li><a href="#focus">Projects</a></li>
+              <li><a href="#direction">Experience</a></li>
+              <li><a href="#tools">Skills</a></li>
+              <li><a href="#profiles">Profiles</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h2>Contact</h2>
+            <ul role="list">
+              <li><a data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li>
+              <li><a data-profile-link="linkedin" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__legal">
+          <span>&copy; <span data-year>2026</span> <span data-profile="name">Sayklang Saramolee</span></span>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="image-viewer" aria-labelledby="image-viewer-title">
+    <div class="image-viewer__head">
+      <h2 id="image-viewer-title"></h2>
+      <form method="dialog"><button class="btn btn--secondary" type="submit" autofocus>Close image</button></form>
+    </div>
+    <div class="image-viewer__media"></div>
+    <p role="status" hidden>The image could not be loaded.</p>
+  </dialog>
 </body>
 </html>
