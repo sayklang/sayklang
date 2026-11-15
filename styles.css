@@ -55,12 +55,12 @@ html::-webkit-scrollbar-thumb {
 
 .empty-object h3 {
   max-width: 22ch;
-  font: 400 clamp(28px, 3.3vw, 48px)/1.08 var(--font-display);
+  font: 400 clamp(1.375rem, 2.5vw, 2rem)/1.15 var(--font-display);
   overflow-wrap: break-word;
   min-width: 0;
 }
 
-.empty-object p { max-width: 56ch; color: var(--muted); }
+.empty-object p { max-width: 56ch; }
 
 .project-placeholder {
   display: grid;
@@ -138,6 +138,7 @@ html::-webkit-scrollbar-thumb {
   padding-block: var(--s-5);
   border-bottom: 1px solid var(--line);
   color: var(--ink);
+  overflow-wrap: anywhere;
   text-decoration: none;
   transition: transform 120ms ease-out;
 }
@@ -200,4 +201,103 @@ a.profile-entry:focus-visible { outline: 2px solid var(--action); outline-offset
   .profile-entry { transition: none; }
   a.profile-entry:hover,
   a.profile-entry:active { transform: none; }
+}
+
+/* เลือกชุดสีและรูปแบบรายการได้จากเมนู Appearance ใน Pages CMS */
+:root[data-palette="navy"] {
+  --p-bg: #eef0f3;
+  --p-surface: #e1e6ec;
+  --p-ink: #162c46;
+  --p-muted: #485d73;
+  --p-accent: var(--p-ink);
+  --p-action: var(--p-ink);
+  --p-accent-ink: var(--p-bg);
+  --p-action-ink: var(--p-bg);
+}
+
+:root[data-palette="forest"] {
+  --p-bg: #f1efe7;
+  --p-surface: #e6e5d9;
+  --p-ink: #214338;
+  --p-muted: #4c5a46;
+  --p-accent: var(--p-ink);
+  --p-action: var(--p-ink);
+  --p-accent-ink: var(--p-bg);
+  --p-action-ink: var(--p-bg);
+}
+
+/* เนื้อหาที่เพิ่มจาก CMS ต้องขยายได้ตามจำนวนรายการ ทั้งบนมือถือและจอใหญ่ */
+@media (min-width: 1280px) {
+  main > section[data-editable-section],
+  footer.closing {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  main > section[data-editable-section] > .wrap,
+  footer.closing > .wrap { height: auto; }
+}
+
+footer.closing > .wrap { grid-template-rows: minmax(auto, 1fr) auto; }
+
+.portfolio-items {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-item {
+  min-width: 0;
+  padding-block: var(--s-5);
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.portfolio-item > * + * { margin-top: var(--s-3); }
+.portfolio-item h3 { font: 400 clamp(1.5rem, 2.5vw, 2rem)/1.15 var(--font-display); }
+.portfolio-item__meta { color: var(--muted); }
+.portfolio-item__summary { max-width: 65ch; white-space: pre-line; }
+
+.portfolio-item__cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.portfolio-item__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+}
+
+.portfolio-item__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.portfolio-item__links a:hover { text-decoration-thickness: 2px; }
+.skills-empty { padding-block: var(--s-5); }
+
+:root:not([data-project-layout="list"]) .project-items .portfolio-item {
+  padding: var(--s-5);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+@media (min-width: 640px) {
+  :root:not([data-project-layout="list"]) .project-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

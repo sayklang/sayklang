@@ -49,7 +49,7 @@
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Sayklang</a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span><span data-profile="shortName">Sayklang</span></a>
     <nav class="nav__links" aria-label="Main navigation">
       <div class="nav__item"><a class="nav__link" href="#focus">Projects</a></div>
       <div class="nav__item"><a class="nav__link" href="#direction">Experience</a></div>
@@ -71,29 +71,28 @@
     <div class="wrap">
       <div class="hero-text grid hero__grid">
         <div class="hero__text span-5">
-          <h1 id="hero-h">Sayklang Saramolee, Computer Engineering</h1>
-          <p class="hero__lead">Mahidol University student interested in cybersecurity, networking and DevOps.</p>
+          <h1 id="hero-h" data-profile="headline">Sayklang Saramolee, Computer Engineering</h1>
+          <p class="hero__lead" data-profile="intro">Mahidol University student interested in cybersecurity, networking and DevOps.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#profiles">View profiles</a>
-            <a class="btn btn--secondary" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">View GitHub</a>
+            <a class="btn btn--secondary" data-profile-link="github" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">View GitHub</a>
           </div>
         </div>
         <div class="hero__media span-6 start-7">
-          <img src="https://avatars.githubusercontent.com/u/195727556?v=4" alt="Profile image used by Sayklang Saramolee on GitHub" width="420" height="420" fetchpriority="high" data-source="client" data-subject="Sayklang Saramolee">
+          <img data-profile-photo src="https://avatars.githubusercontent.com/u/195727556?v=4" alt="Profile image used by Sayklang Saramolee on GitHub" width="420" height="420" fetchpriority="high" data-source="client" data-subject="Sayklang Saramolee">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS: ตอนมีโปรเจกต์จริง ให้แทนที่ article.project-placeholder
-       ด้วยข้อมูลชื่อโปรเจกต์ บทบาท เครื่องมือ คำอธิบาย และลิงก์ที่ตรวจสอบแล้ว -->
-  <section class="section project-section" id="focus" aria-labelledby="focus-h">
+  <!-- PROJECTS: เพิ่มรายการจากเมนู Projects ใน Pages CMS ระบบจะแทนที่ข้อความว่างให้เอง -->
+  <section class="section project-section" id="focus" data-editable-section aria-labelledby="focus-h">
     <div class="wrap">
       <div class="section-head section-head--split">
         <h2 id="focus-h">Projects</h2>
         <p>Verified project details will be added as the work is ready to share.</p>
       </div>
-      <article class="empty-object project-placeholder" aria-labelledby="project-empty-h">
+      <article class="empty-object project-placeholder" data-empty="projects" aria-labelledby="project-empty-h">
         <div>
           <h3 id="project-empty-h">No projects published yet</h3>
           <p>This space is reserved for a project title, role, tools, short description and verified link.</p>
@@ -104,12 +103,12 @@
           <div><dt>Repository or demo</dt><dd>Not added</dd></div>
         </dl>
       </article>
+      <ul class="portfolio-items project-items" data-items="projects" aria-labelledby="focus-h" role="list" hidden></ul>
     </div>
   </section>
 
-  <!-- EXPERIENCE & ACTIVITIES: แทนที่ article.experience-placeholder
-       เมื่อมีชื่อองค์กร/กิจกรรม บทบาท วันที่ และรายละเอียดที่ยืนยันแล้ว -->
-  <section class="section experience-section" id="direction" data-moment="" aria-labelledby="direction-h">
+  <!-- EXPERIENCE & ACTIVITIES: แก้รายการผ่านเมนู Experience and activities ใน Pages CMS -->
+  <section class="section experience-section" id="direction" data-editable-section aria-labelledby="direction-h">
     <div class="wrap grid grid--middle">
       <div class="span-5">
         <div class="section-head">
@@ -117,24 +116,26 @@
           <p>Only confirmed roles, events and activities will appear here.</p>
         </div>
       </div>
-      <article class="empty-object experience-placeholder span-6 start-7" aria-labelledby="experience-empty-h">
+      <article class="empty-object experience-placeholder span-6 start-7" data-empty="experience" aria-labelledby="experience-empty-h">
         <h3 id="experience-empty-h">No entries added yet</h3>
         <p>This space is reserved for an organisation, activity, role, date and a short verified summary.</p>
       </article>
+      <ul class="portfolio-items span-6 start-7" data-items="experience" aria-labelledby="direction-h" role="list" hidden></ul>
     </div>
   </section>
 
-  <!-- TOOLS: รายการนี้มาจาก README ของ GitHub แก้แต่ละแถวใน dl เมื่อข้อมูลเปลี่ยน -->
-  <section class="section ground-surface" id="tools" aria-labelledby="tools-h">
+  <!-- SKILLS: เพิ่มหมวดและทักษะผ่านเมนู Skills ข้อมูลใน HTML ใช้เมื่อโหลดข้อมูลไม่ได้ -->
+  <section class="section ground-surface" id="tools" data-editable-section aria-labelledby="tools-h">
     <div class="wrap grid grid--middle">
       <div class="span-5">
         <div class="section-head">
-          <h2 id="tools-h">Sayklang’s tools</h2>
-          <p>These languages, tools and environments are listed on my GitHub profile.</p>
+          <h2 id="tools-h">Skills</h2>
+          <p>Languages, tools and environments I work with.</p>
         </div>
       </div>
       <div class="tool-ledger span-6 start-7">
-        <dl>
+        <p class="skills-empty" data-empty="skills" hidden>No skills listed yet.</p>
+        <dl data-items="skills">
           <div><dt>Languages</dt><dd>C, C++, Python, SQL</dd></div>
           <div><dt>Tools</dt><dd>Git, GitHub, VirtualBox</dd></div>
           <div><dt>Systems</dt><dd>Linux, Windows</dd></div>
@@ -144,15 +145,14 @@
     </div>
   </section>
 
-  <!-- PROFILES: GitHub และ LinkedIn มี URL ยืนยันแล้ว
-       ใส่ลิงก์ CV หรือ TryHackMe เฉพาะเมื่อมี URL จริง แล้วเปลี่ยน div เป็น a -->
+  <!-- PROFILES: แก้ URL ในเมนู Personal information ใส่ CV และ TryHackMe เมื่อมีลิงก์จริง -->
   <section class="section ground-surface" id="profiles" aria-labelledby="profiles-h">
     <div class="wrap">
       <div class="section-head profiles-head">
-        <h2 id="profiles-h">Sayklang’s profiles</h2>
-        <p>Two public profiles are confirmed. CV and TryHackMe URLs are not yet verified.</p>
+        <h2 id="profiles-h">Profiles</h2>
+        <p>Public profiles and CV links.</p>
       </div>
-      <div class="profile-list" data-visual="profiles">
+      <div class="profile-list" data-visual="profiles" data-profile-list>
         <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
           <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
         </a>
@@ -173,24 +173,25 @@
 <!-- CERTIFICATES + FOOTER: ส่วนใบรับรองและข้อมูลติดต่อท้ายเว็บไซต์ -->
 <footer class="footer closing" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta certificate-block">
+    <div class="closing__cta certificate-block" data-certificates>
       <div class="section-head"><h2 id="close-h">Certificates</h2><p class="t-lead">Verified certificates and credential links will be added here.</p></div>
-      <!-- เมื่อมีใบรับรอง ให้แทนที่ article นี้ด้วยชื่อใบรับรอง ผู้ออก วันที่ และ credential URL -->
-      <article class="empty-object certificate-placeholder" aria-labelledby="certificate-empty-h">
+      <!-- เพิ่มข้อมูลผ่านเมนู Certificates ใน Pages CMS -->
+      <article class="empty-object certificate-placeholder" data-empty="certificates" aria-labelledby="certificate-empty-h">
         <h3 id="certificate-empty-h">No verified certificates added yet</h3>
         <p>This space is reserved for a certificate name, issuer, issue date and credential link.</p>
       </article>
+      <ul class="portfolio-items" data-items="certificates" aria-labelledby="close-h" role="list" hidden></ul>
     </div>
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-5">
-          <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span>Sayklang</a>
-          <p class="footer__lede">Computer Engineering at Mahidol University.</p>
+          <a class="nav__logo" href="#top"><span class="mark" data-mark="dots" aria-hidden="true"></span><span data-profile="shortName">Sayklang</span></a>
+          <p class="footer__lede" data-profile="footerNote">Computer Engineering at Mahidol University.</p>
         </div>
         <div class="span-2 start-7 footer__col"><h3>Portfolio</h3><ul><li><a href="#focus">Projects</a></li><li><a href="#direction">Experience</a></li><li><a href="#tools">Tools</a></li><li><a href="#profiles">Profiles</a></li></ul></div>
-        <div class="span-3 start-10 footer__col"><h3>Contact</h3><ul><li><a href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li><li><a href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li></ul></div>
+        <div class="span-3 start-10 footer__col"><h3>Contact</h3><ul><li><a data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li><li><a data-profile-link="linkedin" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li></ul></div>
       </div>
-      <div class="footer__legal"><span>&copy; <span data-year>2026</span> Sayklang Saramolee</span><span>Built as a static GitHub Pages site.</span></div>
+      <div class="footer__legal"><span>&copy; <span data-year>2026</span> <span data-profile="name">Sayklang Saramolee</span></span><span>Built as a static GitHub Pages site.</span></div>
     </div>
   </div>
 </footer>
@@ -198,6 +199,7 @@
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="portfolio-content.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>

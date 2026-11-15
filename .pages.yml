@@ -1,0 +1,117 @@
+# ฟอร์มที่แสดงใน Pages CMS แต่ละเมนูแก้เฉพาะไฟล์ข้อมูลที่ระบุ
+media:
+  input: assets/uploads
+  output: /sayklang/assets/uploads
+  extensions: [jpg, jpeg, png, webp]
+  rename: random
+
+components:
+  url:
+    type: string
+    pattern:
+      regex: '^https?://\S+$'
+      message: Enter a URL starting with https:// or http://.
+
+content:
+  - name: profile
+    label: Personal information
+    type: file
+    path: content/profile.json
+    format: json
+    fields:
+      - { name: name, label: Full name, type: string, required: true }
+      - { name: shortName, label: Name in the navigation, type: string, required: true, options: { maxlength: 16 } }
+      - { name: headline, label: Headline, type: string, required: true, options: { maxlength: 72 } }
+      - { name: intro, label: Introduction, type: text, required: true, options: { maxlength: 200 } }
+      - { name: footerNote, label: Footer introduction, type: string, required: true }
+      - { name: photo, label: Profile photo, type: image }
+      - { name: photoAlt, label: Profile photo description, type: string }
+      - { name: email, label: Public email, type: string }
+      - { name: github, label: GitHub URL, component: url }
+      - { name: linkedin, label: LinkedIn URL, component: url }
+      - { name: cv, label: Public CV URL, component: url }
+      - { name: tryHackMe, label: TryHackMe profile URL, component: url }
+
+  - name: projects
+    label: Projects
+    type: file
+    path: content/projects.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Project name, type: string, required: true }
+      - { name: summary, label: Description, type: text, required: true }
+      - { name: role, label: Your role, type: string }
+      - { name: technologies, label: Technologies, type: string, list: true }
+      - { name: cover, label: Cover image, type: image }
+      - { name: coverAlt, label: Cover image description, type: string }
+      - { name: repository, label: Repository URL, component: url }
+      - { name: demo, label: Demo URL, component: url }
+
+  - name: skills
+    label: Skills
+    type: file
+    path: content/skills.json
+    format: json
+    list: true
+    fields:
+      - { name: category, label: Category, type: string, required: true }
+      - { name: items, label: Skills in this category, type: string, list: true, required: true }
+
+  - name: experience
+    label: Experience and activities
+    type: file
+    path: content/experience.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Experience or activity, type: string, required: true }
+      - { name: organization, label: Organization, type: string }
+      - { name: role, label: Your role, type: string }
+      - { name: period, label: Date or period, type: string }
+      - { name: summary, label: Description, type: text }
+      - { name: link, label: Related URL, component: url }
+
+  - name: certificates
+    label: Certificates
+    type: file
+    path: content/certificates.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Certificate name, type: string, required: true }
+      - { name: issuer, label: Issuer, type: string, required: true }
+      - name: issued
+        label: Issue date
+        type: date
+        default: ""
+        options: { format: yyyy-MM-dd }
+      - { name: credential, label: Credential URL, component: url }
+
+  - name: appearance
+    label: Appearance
+    type: file
+    path: content/appearance.json
+    format: json
+    fields:
+      - name: palette
+        label: Color palette
+        type: select
+        required: true
+        options:
+          values:
+            - { name: oxblood, label: Oxblood and gray (original) }
+            - { name: navy, label: Navy and cool gray }
+            - { name: forest, label: Forest and warm gray }
+      - name: projectLayout
+        label: Project layout
+        type: select
+        required: true
+        options:
+          values:
+            - { name: cards, label: Cards }
+            - { name: list, label: Single-column list }
+      - { name: showProjects, label: Show projects, type: boolean }
+      - { name: showSkills, label: Show skills, type: boolean }
+      - { name: showExperience, label: Show experience and activities, type: boolean }
+      - { name: showCertificates, label: Show certificates, type: boolean }

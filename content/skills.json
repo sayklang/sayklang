@@ -1,0 +1,6 @@
+[
+  { "category": "Languages", "items": ["C", "C++", "Python", "SQL"] },
+  { "category": "Tools", "items": ["Git", "GitHub", "VirtualBox"] },
+  { "category": "Systems", "items": ["Linux", "Windows"] },
+  { "category": "AI workflows", "items": ["Ollama", "Local LLMs"] }
+]
