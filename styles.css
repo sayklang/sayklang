@@ -153,7 +153,7 @@ button:disabled { cursor: not-allowed; }
   background: var(--p-bg);
 }
 
-.nav__bar, .nav__links, .nav__actions, .btn-row {
+.nav__bar, .nav__links, .nav__actions, .hero__contacts {
   display: flex;
   align-items: center;
 }
@@ -172,7 +172,7 @@ button:disabled { cursor: not-allowed; }
 }
 
 .nav__links { gap: var(--space-md); }
-.nav__actions, .btn-row { gap: var(--space-xs); }
+.nav__actions, .hero__contacts { gap: var(--space-xs); }
 .nav__actions { flex-shrink: 0; }
 
 .nav__logo, .nav__link, .folio-links a, .btn, .profile-entry {
@@ -213,6 +213,13 @@ button:disabled { cursor: not-allowed; }
 a.btn--primary {
   background: var(--p-action);
   color: var(--p-action-ink);
+}
+
+.btn--text {
+  padding-inline: var(--space-xs);
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: .2em;
 }
 
 .btn:hover, .nav__toggle:hover { transform: translateY(-2px); }
@@ -258,9 +265,9 @@ a.btn--primary {
   font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
 }
 
-.btn-row {
+.hero__contacts {
   flex-wrap: wrap;
-  margin-block-start: var(--space-lg);
+  margin-block-start: var(--space-md);
 }
 
 .hero__folio {
