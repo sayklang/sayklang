@@ -83,10 +83,23 @@ function hydrateProfile(profile) {
   }
 
   const email = cleanText(profile.email);
+  const validEmail = /^[^\s@?#&]+@[^\s@?#&]+\.[^\s@?#&]+$/.test(email);
+  const emailContact = document.getElementById('email-contact');
+  emailContact.hidden = !validEmail;
+  emailContact.querySelector('[data-email-address]').textContent = validEmail ? email : '';
+  const compose = emailContact.querySelector('[data-email-compose]');
+  if (validEmail) {
+    const gmail = new URL('https://mail.google.com/mail/?view=cm&fs=1');
+    gmail.searchParams.set('to', email);
+    compose.href = gmail.href;
+  } else {
+    compose.removeAttribute('href');
+  }
+
   const links = {
     github: webUrl(profile.github),
     linkedin: webUrl(profile.linkedin),
-    email: /^[^\s@?#&]+@[^\s@?#&]+\.[^\s@?#&]+$/.test(email) ? 'mailto:' + email : '',
+    email: validEmail ? '#email-contact' : '',
   };
 
   for (const node of document.querySelectorAll('[data-profile-link]')) {
@@ -116,6 +129,15 @@ function hydrateProfile(profile) {
   });
   if (!rows.length) rows.push(element('p', 'No public profiles listed.', 'empty-object'));
   document.querySelector('[data-profile-list]').replaceChildren(...rows);
+
+  // ใช้รูปแบบเดียวกับรายการผลงานเพื่อแสดงข้อความและเปิดดูรูปโปรไฟล์เพิ่มเติมได้
+  const highlights = Array.isArray(profile.highlights)
+    ? profile.highlights.filter(Boolean).map((item) => portfolioRow(item)).filter(Boolean)
+    : [];
+  const about = document.getElementById('about');
+  about.querySelector('[data-profile-highlights]').replaceChildren(...highlights);
+  about.hidden = highlights.length === 0;
+  document.querySelector('.folio-links a[href="#about"]').closest('li').hidden = about.hidden;
 }
 
 function textList(values) {

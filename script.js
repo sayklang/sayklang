@@ -73,6 +73,45 @@ window.addEventListener('hashchange', requestLocationUpdate);
 if ('ResizeObserver' in window) new ResizeObserver(requestLocationUpdate).observe(document.body);
 requestLocationUpdate();
 
+// ปุ่มอีเมลเปิดข้อมูลติดต่อบนเว็บ พร้อมตัวเลือกคัดลอกหรือเขียนอีเมลใน Gmail
+const emailContact = document.getElementById('email-contact');
+const emailStatus = emailContact.querySelector('[role="status"]');
+const copyEmail = emailContact.querySelector('[data-copy-email]');
+let emailTrigger = null;
+
+if (typeof emailContact.showModal === 'function') {
+  document.querySelectorAll('[data-profile-link="email"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || emailContact.hidden) return;
+      event.preventDefault();
+      emailTrigger = link;
+      emailStatus.textContent = '';
+      emailContact.removeAttribute('open');
+      emailContact.showModal();
+    });
+  });
+
+  emailContact.addEventListener('close', () => {
+    emailStatus.textContent = '';
+    emailContact.setAttribute('open', '');
+    emailTrigger?.focus({ preventScroll: true });
+    emailTrigger = null;
+  });
+}
+
+if (navigator.clipboard?.writeText) {
+  copyEmail.hidden = false;
+  copyEmail.addEventListener('click', async () => {
+    const address = emailContact.querySelector('[data-email-address]').textContent;
+    try {
+      await navigator.clipboard.writeText(address);
+      emailStatus.textContent = 'Email address copied.';
+    } catch {
+      emailStatus.textContent = 'Select the email address above to copy it.';
+    }
+  });
+}
+
 // ไฟล์ภาพที่แนบผ่าน CMS เปิดขนาดเต็มด้วย dialog และคืนโฟกัสเมื่อปิด
 const imageViewer = document.querySelector('.image-viewer');
 const viewerTitle = imageViewer.querySelector('h2');

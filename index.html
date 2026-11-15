@@ -49,7 +49,7 @@
           <p class="hero__lead" data-profile="intro">Mahidol University student interested in cybersecurity, networking and DevOps.</p>
           <!-- ลิงก์ติดต่อในหน้าแรกใช้ข้อมูลจากเมนู Profile ใน Pages CMS -->
           <div class="hero__contacts">
-            <a class="btn btn--primary" data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a>
+            <a class="btn btn--primary" data-profile-link="email" href="#email-contact">Email Sayklang</a>
             <a class="btn btn--text" data-profile-link="linkedin" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="btn btn--text" data-profile-link="github" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
@@ -63,10 +63,19 @@
               <li><a href="#focus">Projects</a></li>
               <li><a href="#direction">Experience &amp; activities</a></li>
               <li><a href="#contact">Certificates</a></li>
+              <li hidden><a href="#about">About me</a></li>
               <li><a href="#profiles">GitHub &amp; LinkedIn</a></li>
             </ul>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- แสดงส่วนนี้เมื่อเพิ่มข้อความหรือรูปใน Profile → About me entries ของ Pages CMS -->
+    <section class="section about-section" id="about" aria-labelledby="about-h" hidden>
+      <div class="wrap chapter">
+        <div class="section-head"><h2 id="about-h">About me</h2></div>
+        <ul class="chapter__content portfolio-items" data-profile-highlights role="list"></ul>
       </div>
     </section>
 
@@ -115,13 +124,28 @@
           <h2 id="profiles-h">Profiles</h2>
           <p>Find my work on GitHub or connect with me on LinkedIn.</p>
         </div>
-        <div class="chapter__content profile-list" data-profile-list>
-          <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
-            <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
-          </a>
-          <a class="profile-entry" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
-            <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span>Open profile</span>
-          </a>
+        <div class="chapter__content">
+          <div class="profile-list" data-profile-list>
+            <a class="profile-entry" href="https://github.com/sayklang" target="_blank" rel="noopener noreferrer">
+              <span><strong>GitHub</strong><small>github.com/sayklang</small></span><span>Open profile</span>
+            </a>
+            <a class="profile-entry" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">
+              <span><strong>LinkedIn</strong><small>Sayklang Saramolee</small></span><span>Open profile</span>
+            </a>
+          </div>
+          <!-- เมื่อไม่มี JavaScript ข้อมูลติดต่อจะแสดงอยู่ในส่วน Profiles -->
+          <dialog class="email-contact" id="email-contact" aria-labelledby="email-contact-title" open>
+            <div class="email-contact__head">
+              <h2 id="email-contact-title">Email</h2>
+              <form method="dialog"><button class="btn" type="submit" autofocus>Close</button></form>
+            </div>
+            <p data-email-address>sayklang.sar@student.mahidol.edu</p>
+            <div class="email-contact__actions">
+              <a class="btn btn--primary" data-email-compose href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sayklang.sar%40student.mahidol.edu" target="_blank" rel="noopener noreferrer">Compose in Gmail</a>
+              <button class="btn" type="button" data-copy-email hidden>Copy address</button>
+            </div>
+            <p class="email-contact__status" role="status"></p>
+          </dialog>
         </div>
       </div>
     </section>
@@ -157,7 +181,7 @@
           <div class="footer__col">
             <h2>Contact</h2>
             <ul role="list">
-              <li><a data-profile-link="email" href="mailto:sayklang.sar@student.mahidol.edu">Email Sayklang</a></li>
+              <li><a data-profile-link="email" href="#email-contact">Email Sayklang</a></li>
               <li><a data-profile-link="linkedin" href="https://www.linkedin.com/in/sayklang-saramolee-1b0971447/" target="_blank" rel="noopener noreferrer">View LinkedIn</a></li>
             </ul>
           </div>
