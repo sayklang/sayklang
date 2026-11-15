@@ -581,7 +581,10 @@ html:has(.image-viewer[open]) { overflow-y: hidden; }
 @media (max-width: 38rem) {
   :root { --nav-height: 4.125rem; --space-xl: 2rem; }
   .nav__actions .btn, .nav__toggle { padding-inline: var(--space-xs); font-size: .9375rem; }
-  .hero { padding-block: var(--space-xl); }
+  .hero { padding-block: var(--space-md); }
+  .hero__grid { gap: var(--space-md); }
+  .hero__folio { gap: var(--space-sm); }
+  .hero__folio [data-profile-photo]:not([data-uploaded-photo]) { width: var(--space-2xl); height: var(--space-2xl); }
   .hero__text h1 { font-size: clamp(3.125rem, 13.5vw, 4.625rem); }
   .chapter { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
   .empty-object { padding-block: 0; }
