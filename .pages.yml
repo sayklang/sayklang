@@ -70,6 +70,8 @@ content:
       - { name: role, label: Your role, type: string }
       - { name: period, label: Date or period, type: string }
       - { name: summary, label: Description, type: text }
+      - { name: image, label: Activity image, type: image }
+      - { name: imageAlt, label: Activity image description, type: string }
       - { name: link, label: Related URL, component: url }
 
   - name: certificates
@@ -86,6 +88,8 @@ content:
         type: date
         default: ""
         options: { format: yyyy-MM-dd }
+      - { name: image, label: Certificate image, type: image }
+      - { name: imageAlt, label: Certificate image description, type: string }
       - { name: credential, label: Credential URL, component: url }
 
   - name: appearance

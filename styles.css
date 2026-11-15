@@ -272,6 +272,12 @@ footer.closing > .wrap { grid-template-rows: minmax(auto, 1fr) auto; }
   background: var(--surface);
 }
 
+/* ให้เห็นขอบและข้อความของใบรับรองครบทั้งภาพ */
+[data-items="certificates"] .portfolio-item__cover {
+  max-height: 28rem;
+  object-fit: contain;
+}
+
 .portfolio-item__links {
   display: flex;
   flex-wrap: wrap;

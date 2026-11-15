@@ -134,15 +134,16 @@ function skillRow(skill) {
   return row;
 }
 
-function portfolioRow(item, { meta = [], links = [], cover } = {}) {
+function portfolioRow(item, { meta = [], links = [], image = item.image, imageAlt = item.imageAlt } = {}) {
   const title = cleanText(item.title);
   if (!title) return null;
 
   const row = element('li', '', 'portfolio-item');
-  if (cover) {
+  const imageUrl = uploadUrl(image);
+  if (imageUrl) {
     const photo = element('img', '', 'portfolio-item__cover');
-    photo.src = cover.href;
-    photo.alt = cleanText(item.coverAlt);
+    photo.src = imageUrl.href;
+    photo.alt = cleanText(imageAlt);
     photo.width = 640;
     photo.height = 360;
     photo.loading = 'lazy';
@@ -210,7 +211,8 @@ const editors = {
   projects: (rows) => renderEntries(rows, 'projects', (item) => portfolioRow(item, {
     meta: [item.role, ...textList(item.technologies)],
     links: [['View repository', item.repository], ['View demo', item.demo]],
-    cover: uploadUrl(item.cover),
+    image: item.cover,
+    imageAlt: item.coverAlt,
   })),
   experience: (rows) => renderEntries(rows, 'experience', (item) => portfolioRow(item, {
     meta: [item.role, item.organization, item.period],
