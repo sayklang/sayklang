@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Hanken+Grotesk:wght@400..600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="motion.js" defer></script>
   <script type="module" src="portfolio-content.js"></script>
 </head>
 <body>
@@ -42,8 +43,7 @@
 
   <main id="top" tabindex="-1">
     <section class="hero" data-enter aria-labelledby="hero-h">
-      <canvas class="hero__signals" aria-hidden="true"></canvas>
-      <button class="motion-toggle" type="button" aria-pressed="false" hidden>Pause background</button>
+      <canvas class="hero__contours" aria-hidden="true"></canvas>
       <div class="wrap hero__grid">
         <div class="hero__text">
           <h1 id="hero-h" data-profile="name">Sayklang Saramolee</h1>
