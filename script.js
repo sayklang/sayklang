@@ -46,6 +46,10 @@ let scrollFrame = 0;
 
 function updateLocation() {
   scrollFrame = 0;
+  navigation.toggleAttribute('data-scrolled', window.scrollY > 16);
+  const scrollDistance = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollDistance > 0 ? Math.max(0, Math.min(1, window.scrollY / scrollDistance)) : 0;
+  navigation.style.setProperty('--reading-progress', progress);
   const line = Math.min(200, window.innerHeight * .28);
   let current = '';
   let nearest = -Infinity;
